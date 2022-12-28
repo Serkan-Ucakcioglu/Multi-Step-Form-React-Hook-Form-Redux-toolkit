@@ -14,7 +14,18 @@ function StepList() {
     3: <Step3 />,
     4: <Step4 />,
   };
-  return <>{arr[step]}</>;
+  const title = {
+    1: "Email",
+    2: "Name Surname",
+    3: "Number",
+    4: "Success",
+  };
+  return (
+    <>
+      <h1 className="text-center text-white text-2xl">{title[step]}</h1>
+      {arr[step]}
+    </>
+  );
 }
 
 export default StepList;
