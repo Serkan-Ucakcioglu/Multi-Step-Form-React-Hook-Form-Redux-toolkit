@@ -5,7 +5,6 @@ import { selectedData } from "../stepFormslice";
 
 function Step4() {
   const formData = useSelector(selectedData);
-  console.log(formData);
 
   return (
     <div className="flex flex-col h-full justify-center items-center">

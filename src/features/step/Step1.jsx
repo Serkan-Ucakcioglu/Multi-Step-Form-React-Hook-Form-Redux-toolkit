@@ -1,8 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { addData, selectedData } from "../stepFormslice";
+import { addData, addStep, selectedData } from "../stepFormslice";
 
 function Step1() {
   const {
@@ -10,13 +9,12 @@ function Step1() {
     register,
     formState: { errors },
   } = useForm({ mode: "all" });
-  const navigate = useNavigate();
   const formData = useSelector(selectedData);
 
   const dispatch = useDispatch();
   const onSubmit = (data) => {
     if (!formData[0]?.email) dispatch(addData(data));
-    navigate("/step2");
+    dispatch(addStep(2));
   };
   return (
     <form

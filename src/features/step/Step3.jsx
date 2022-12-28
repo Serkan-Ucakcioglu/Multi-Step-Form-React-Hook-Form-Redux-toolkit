@@ -1,8 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { addData, selectedData } from "../stepFormslice";
+import { addData, addStep, selectedData } from "../stepFormslice";
 import Buttons from "../../Components/Buttons";
 
 function Step3() {
@@ -11,13 +10,12 @@ function Step3() {
     register,
     formState: { errors },
   } = useForm({ mode: "all" });
-  const navigate = useNavigate();
   const formData = useSelector(selectedData);
 
   const dispatch = useDispatch();
   const onSubmit = (data) => {
     if (!formData[2]?.number) dispatch(addData(data));
-    navigate("/step4");
+    dispatch(addStep(4));
   };
   return (
     <form
@@ -45,7 +43,7 @@ function Step3() {
           {errors?.number?.message}
         </span>
       </div>
-      <Buttons step={"/step2"} />
+      <Buttons step={3} />
     </form>
   );
 }
