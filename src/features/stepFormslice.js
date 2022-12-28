@@ -13,5 +13,6 @@ const stepFormslice = createSlice({
     },
   },
 });
+export const selectedData = (state) => state.stepFormslice.formData;
 export const { addData } = stepFormslice.actions;
 export default stepFormslice.reducer;

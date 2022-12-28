@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { addData } from "../stepFormslice";
+import { useDispatch, useSelector } from "react-redux";
+import { addData, selectedData } from "../stepFormslice";
 import Buttons from "../../Components/Buttons";
 
 function Step3() {
@@ -10,12 +10,13 @@ function Step3() {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "all" });
   const navigate = useNavigate();
+  const formData = useSelector(selectedData);
 
   const dispatch = useDispatch();
   const onSubmit = (data) => {
-    dispatch(addData(data));
+    if (!formData[2]?.number) dispatch(addData(data));
     navigate("/step4");
   };
   return (
@@ -26,6 +27,7 @@ function Step3() {
         </label>
         <input
           type="tel"
+          defaultValue={formData[2]?.number}
           className="bg-gray-200 pl-2 text-black h-10 outline-none"
           {...register("number", {
             required: "required!",

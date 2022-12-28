@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { addData } from "../stepFormslice";
+import { addData, selectedData } from "../stepFormslice";
 import Buttons from "../../Components/Buttons";
 
 function Step2() {
@@ -10,12 +10,13 @@ function Step2() {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "all" });
   const navigate = useNavigate();
+  const formData = useSelector(selectedData);
 
   const dispatch = useDispatch();
   const onSubmit = (data) => {
-    dispatch(addData(data));
+    if (!formData[1]?.name) dispatch(addData(data));
     navigate("/step3");
   };
   return (
@@ -28,6 +29,7 @@ function Step2() {
           Name
         </label>
         <input
+          defaultValue={formData[1]?.name}
           className="bg-gray-200 pl-2 text-black h-10 outline-none"
           {...register("name", {
             required: "required",
@@ -56,6 +58,7 @@ function Step2() {
           Surname
         </label>
         <input
+          defaultValue={formData[1]?.surname}
           className="bg-gray-200 text-black h-10 outline-none pl-2"
           {...register("surname", {
             required: "required",

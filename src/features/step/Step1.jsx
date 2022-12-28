@@ -1,20 +1,21 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addData } from "../stepFormslice";
+import { addData, selectedData } from "../stepFormslice";
 
 function Step1() {
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+  } = useForm({ mode: "all" });
   const navigate = useNavigate();
+  const formData = useSelector(selectedData);
 
   const dispatch = useDispatch();
   const onSubmit = (data) => {
-    dispatch(addData(data));
+    if (!formData[0]?.email) dispatch(addData(data));
     navigate("/step2");
   };
   return (
@@ -27,6 +28,7 @@ function Step1() {
           Email
         </label>
         <input
+          defaultValue={formData[0]?.email}
           className="bg-gray-200 pl-2 text-black h-10 outline-none"
           {...register("email", {
             required: "required",
