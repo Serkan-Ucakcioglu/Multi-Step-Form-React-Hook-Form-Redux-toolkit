@@ -7,7 +7,11 @@ const initialState = {
 const stepFormslice = createSlice({
   name: "stepFormslice",
   initialState,
-  reducers: {},
+  reducers: {
+    addData: (state, { payload }) => {
+      state.formData.push(payload);
+    },
+  },
 });
-
+export const { addData } = stepFormslice.actions;
 export default stepFormslice.reducer;
