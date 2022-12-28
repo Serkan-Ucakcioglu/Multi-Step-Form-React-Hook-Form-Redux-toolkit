@@ -20,14 +20,14 @@ function Step1() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col justify-center h-full"
+      className="flex flex-col  h-full justify-center"
     >
-      <>
+      <div className="flex flex-col justify-center">
         <label htmlFor="email" className="text-left text-black">
           Email
         </label>
         <input
-          className="bg-gray-200 text-black h-10 outline-none"
+          className="bg-gray-200 pl-2 text-black h-10 outline-none"
           {...register("email", {
             required: "required",
             minLength: {
@@ -49,11 +49,11 @@ function Step1() {
         <span className="text-red-500 text-left text-m font-bold">
           {errors?.email?.message}
         </span>
-      </>
+      </div>
 
       <button
         type="submit"
-        className="inline-flex w-[70px] mt-auto mb-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800"
+        className="inline-flex w-[70px] mt-4 mb-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800"
       >
         Next
       </button>
