@@ -7,6 +7,7 @@ import App from "../App";
 import Step1 from "../features/step/Step1";
 import Step2 from "../features/step/Step2";
 import Step3 from "../features/step/Step3";
+import Step4 from "../features/step/Step4";
 
 export const router = createHashRouter(
   createRoutesFromElements(
@@ -14,6 +15,7 @@ export const router = createHashRouter(
       <Route index element={<Step1 />} />
       <Route path="step2" element={<Step2 />} />
       <Route path="step3" element={<Step3 />} />
+      <Route path="step4" element={<Step4 />} />
     </Route>
   )
 );

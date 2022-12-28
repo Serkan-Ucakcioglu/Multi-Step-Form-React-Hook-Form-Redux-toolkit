@@ -16,7 +16,7 @@ function Step3() {
   const dispatch = useDispatch();
   const onSubmit = (data) => {
     dispatch(addData(data));
-    navigate("/step3");
+    navigate("/step4");
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -30,7 +30,7 @@ function Step3() {
           {...register("number", {
             required: "required!",
             pattern: {
-              value: /^\d{3}\d{3}\d{4}$/g,
+              value: /[0-9]/g,
               message: "Phone number please!",
             },
           })}
