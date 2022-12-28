@@ -25,7 +25,7 @@ function Step2() {
       className="flex flex-col justify-center h-full"
     >
       <div className="flex flex-col">
-        <label htmlFor="name" className="text-left text-black">
+        <label htmlFor="name" className="text-left text-white">
           Name
         </label>
         <input
@@ -53,8 +53,8 @@ function Step2() {
           {errors?.name?.message}
         </span>
       </div>
-      <div className="flex flex-col">
-        <label htmlFor="name" className="text-left text-black">
+      <div className="flex flex-col mt-2">
+        <label htmlFor="name" className="text-left text-white">
           Surname
         </label>
         <input

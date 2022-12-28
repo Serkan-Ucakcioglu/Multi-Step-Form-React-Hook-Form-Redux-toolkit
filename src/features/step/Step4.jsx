@@ -8,8 +8,11 @@ function Step4() {
   console.log(formData);
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <p> {JSON.stringify(formData, undefined, 4)}</p>
+    <div className="flex flex-col h-full justify-center items-center">
+      <p className="text-white text-sm mb-2">
+        {" "}
+        {JSON.stringify(formData, undefined, 4)}
+      </p>
       <OkSvg />
     </div>
   );

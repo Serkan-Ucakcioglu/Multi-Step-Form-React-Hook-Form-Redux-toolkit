@@ -20,9 +20,12 @@ function Step3() {
     navigate("/step4");
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col justify-center h-full"
+    >
       <div className="flex flex-col">
-        <label htmlFor="number" className="text-left">
+        <label htmlFor="number" className="text-left text-white">
           Number
         </label>
         <input

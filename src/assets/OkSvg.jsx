@@ -3,20 +3,21 @@ import React from "react";
 function OkSvg() {
   return (
     <svg
-      width={300}
-      height={300}
+      width={100}
+      height={100}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      aria-labelledby="okIconTitle"
-      stroke="#000"
+      aria-labelledby="circleOkIconTitle"
+      stroke="#fff"
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
       fill="none"
-      color="#000"
+      color="#fff"
     >
-      <title>{"Ok"}</title>
-      <path d="m4 13 5 5L20 7" />
+      <title>{"OK"}</title>
+      <path d="m7 13 3 3 7-7" />
+      <circle cx={12} cy={12} r={10} />
     </svg>
   );
 }

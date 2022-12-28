@@ -24,7 +24,7 @@ function Step1() {
       className="flex flex-col  h-full justify-center"
     >
       <div className="flex flex-col justify-center">
-        <label htmlFor="email" className="text-left text-black">
+        <label htmlFor="email" className="text-left text-white">
           Email
         </label>
         <input
