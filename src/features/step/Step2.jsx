@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { addData } from "../stepFormslice";
+import Buttons from "../../Components/Buttons";
 
 function Step2() {
   const {
@@ -78,20 +79,7 @@ function Step2() {
           {errors?.surname?.message}
         </span>
       </div>
-      <div className="flex justify-between items-center mt-4">
-        <Link
-          to="/"
-          className="inline-flex w-[70px] mt-auto mb-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800"
-        >
-          Prev
-        </Link>
-        <button
-          type="submit"
-          className="inline-flex w-[70px] mt-auto mb-2 items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800"
-        >
-          Next
-        </button>
-      </div>
+      <Buttons step={"/"} />
     </form>
   );
 }
